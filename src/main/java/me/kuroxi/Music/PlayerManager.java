@@ -1,5 +1,6 @@
 package me.kuroxi.Music;
 
+import com.github.topisenpai.lavasrc.spotify.SpotifySourceManager;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
@@ -7,6 +8,7 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import io.github.cdimascio.dotenv.Dotenv;
 import me.kuroxi.Utils.DurationFormat;
 import me.kuroxi.Utils.URLChecker;
 import net.dv8tion.jda.api.entities.Guild;
@@ -15,7 +17,6 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class PlayerManager {
     private static PlayerManager INSTANCE;
@@ -23,9 +24,12 @@ public class PlayerManager {
     private final AudioPlayerManager audioPlayerManager;
 
     public PlayerManager() {
-        this.musicManagers = new HashMap<>();
+        Dotenv config = Dotenv.configure().load();
 
+        this.musicManagers = new HashMap<>();
         this.audioPlayerManager = new DefaultAudioPlayerManager();
+        audioPlayerManager.registerSourceManager(new SpotifySourceManager(null, config.get("SPOTIFY_ID"), config.get("SPOTIFY_SECRET"), null, audioPlayerManager));
+
         AudioSourceManagers.registerRemoteSources(audioPlayerManager);
         AudioSourceManagers.registerLocalSource(audioPlayerManager);
     }
@@ -35,7 +39,7 @@ public class PlayerManager {
         GuildMusicManager musicManager = musicManagers.get(guildID);
 
         if (musicManager == null) {
-            musicManager = new GuildMusicManager(audioPlayerManager);
+            musicManager = new GuildMusicManager(audioPlayerManager, guild);
             musicManagers.put(guildID, musicManager);
         }
 
@@ -47,12 +51,8 @@ public class PlayerManager {
         musicManagers.remove(guild.getIdLong());
     }
 
-    public void loadAndPlay(SlashCommandInteractionEvent event) {
-        GuildMusicManager musicManager = getMusicManager(Objects.requireNonNull(event.getGuild()));
-
-        String prompt = Objects.requireNonNull(event.getOption("song")).getAsString();
-        boolean isURL = new URLChecker().check(prompt);
-        if (!isURL) prompt = "ytsearch:" + prompt;
+    public void loadAndPlay(SlashCommandInteractionEvent event, String prompt) {
+        GuildMusicManager musicManager = getMusicManager(event.getGuild());
 
         audioPlayerManager.loadItemOrdered(musicManager, prompt, new AudioLoadResultHandler() {
             @Override
@@ -65,7 +65,7 @@ public class PlayerManager {
             public void playlistLoaded(AudioPlaylist audioPlaylist) {
                 final List<AudioTrack> tracks = audioPlaylist.getTracks();
 
-                if (isURL) {
+                if (new URLChecker().check(prompt)) {
                     if (!tracks.isEmpty()) {
                         long totalDuration = 0;
                         for (AudioTrack track : tracks) {
@@ -94,7 +94,7 @@ public class PlayerManager {
     }
 
     public static PlayerManager getINSTANCE() {
-        if (INSTANCE == null) INSTANCE =new PlayerManager();
+        if (INSTANCE == null) INSTANCE = new PlayerManager();
         return INSTANCE;
     }
 }
