@@ -1,5 +1,6 @@
 package me.kuroxi;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import me.kuroxi.Event.GuildReady;
 import me.kuroxi.Event.GuildVoiceState;
 import me.kuroxi.Event.Interaction;
@@ -15,8 +16,8 @@ public class Main {
     private final ShardManager shardManager;
 
     public Main() throws LoginException {
-        final String TOKEN = "YOUR TOKEN HERE";
-        DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(TOKEN);
+        Dotenv config = Dotenv.configure().load();
+        DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(config.get("TOKEN"));
 
         builder.enableCache(CacheFlag.VOICE_STATE);
         builder.disableCache(CacheFlag.EMOJI, CacheFlag.SCHEDULED_EVENTS,CacheFlag.STICKER, CacheFlag.ACTIVITY, CacheFlag.FORUM_TAGS);
