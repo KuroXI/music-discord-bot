@@ -4,7 +4,11 @@
 <br />
 
 ## About the project
-A Discord bot that play music using [JDA](https://github.com/DV8FromTheWorld/JDA) and [lavaplayer](https://github.com/sedmelluq/lavaplayer).
+A Discord bot that play music using [JDA](https://github.com/DV8FromTheWorld/JDA) and [lavaplayer-fork](https://github.com/Walkyst/lavaplayer-fork).
+
+## Update
+  - **1.1.0**
+    - Spotify Support
 
 ## Features
 - Basic Commands of Music Bot
@@ -28,7 +32,13 @@ A Discord bot that play music using [JDA](https://github.com/DV8FromTheWorld/JDA
 git clone https://github.com/KuroXI/music-discord-bot.git
 ```
 
-2. Set up the TOKEN key in the `Main.java` file
+2. Change all the value in the `.env` file\
+Get the spotify `Client ID` and `Client Key` [here](https://developer.spotify.com/dashboard)
+```env
+TOKEN=
+SPOTIFY_ID=
+SPOTIFY_KEY=
+```
 
 ## Contributing
 I'm open to contributions to this project. If you have an idea for a new feature or find a bug, please open an issue or submit a pull request.
