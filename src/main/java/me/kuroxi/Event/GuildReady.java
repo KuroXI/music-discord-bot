@@ -14,8 +14,7 @@ public class GuildReady extends ListenerAdapter {
                 Commands.slash("resume", "resume the song").setGuildOnly(true),
                 Commands.slash("shuffle", "shuffle the queue").setGuildOnly(true),
                 Commands.slash("skip", "skip a song").setGuildOnly(true),
-                Commands.slash("stop", "stop the queue").setGuildOnly(true),
-                Commands.slash("nowplaying", "what's currently playing").setGuildOnly(true)
+                Commands.slash("stop", "stop the queue").setGuildOnly(true)
         ).queue();
     }
 }

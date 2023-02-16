@@ -13,5 +13,6 @@ public class Interaction extends ListenerAdapter {
         if (event.getInteraction().getName().equals("resume")) new Resume(event);
         if (event.getInteraction().getName().equals("stop")) new Stop(event);
         if (event.getInteraction().getName().equals("shuffle")) new Shuffle(event);
+        if (event.getInteraction().getName().equals("nowplaying")) new NowPlaying(event);
     }
 }
