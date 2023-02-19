@@ -1,4 +1,4 @@
-package me.kuroxi.Event;
+package com.github.KuroXI.Event;
 
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

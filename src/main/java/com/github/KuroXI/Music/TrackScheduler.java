@@ -1,10 +1,10 @@
-package me.kuroxi.Music;
+package com.github.KuroXI.Music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import me.kuroxi.Utils.Timeout;
+import com.github.KuroXI.Utils.Timeout;
 import net.dv8tion.jda.api.entities.Guild;
 
 import java.util.ArrayList;

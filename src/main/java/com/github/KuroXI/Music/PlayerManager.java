@@ -1,4 +1,4 @@
-package me.kuroxi.Music;
+package com.github.KuroXI.Music;
 
 import com.github.topisenpai.lavasrc.spotify.SpotifySourceManager;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
@@ -9,8 +9,8 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.github.cdimascio.dotenv.Dotenv;
-import me.kuroxi.Utils.DurationFormat;
-import me.kuroxi.Utils.URLChecker;
+import com.github.KuroXI.Utils.DurationFormat;
+import com.github.KuroXI.Utils.URLChecker;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 

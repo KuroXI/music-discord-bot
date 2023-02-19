@@ -1,8 +1,8 @@
-package me.kuroxi.Command;
+package com.github.KuroXI.Command;
 
-import me.kuroxi.Music.PlayerManager;
-import me.kuroxi.Utils.URLChecker;
-import me.kuroxi.Utils.VoiceChannelCheck;
+import com.github.KuroXI.Music.PlayerManager;
+import com.github.KuroXI.Utils.URLChecker;
+import com.github.KuroXI.Utils.VoiceChannelCheck;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.managers.AudioManager;

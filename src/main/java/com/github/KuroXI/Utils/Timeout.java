@@ -1,4 +1,4 @@
-package me.kuroxi.Utils;
+package com.github.KuroXI.Utils;
 
 public class Timeout {
     public Timeout(Runnable runnable, int delay) {

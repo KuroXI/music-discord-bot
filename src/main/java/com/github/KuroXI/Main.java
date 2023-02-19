@@ -1,10 +1,10 @@
-package me.kuroxi;
+package com.github.KuroXI;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import me.kuroxi.Event.GuildReady;
-import me.kuroxi.Event.GuildVoiceState;
-import me.kuroxi.Event.Interaction;
-import me.kuroxi.Event.Ready;
+import com.github.KuroXI.Event.GuildReady;
+import com.github.KuroXI.Event.GuildVoiceState;
+import com.github.KuroXI.Event.Interaction;
+import com.github.KuroXI.Event.Ready;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.api.sharding.ShardManager;

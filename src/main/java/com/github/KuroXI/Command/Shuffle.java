@@ -1,8 +1,8 @@
-package me.kuroxi.Command;
+package com.github.KuroXI.Command;
 
-import me.kuroxi.Music.PlayerManager;
-import me.kuroxi.Music.TrackScheduler;
-import me.kuroxi.Utils.VoiceChannelCheck;
+import com.github.KuroXI.Music.PlayerManager;
+import com.github.KuroXI.Music.TrackScheduler;
+import com.github.KuroXI.Utils.VoiceChannelCheck;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class Shuffle {

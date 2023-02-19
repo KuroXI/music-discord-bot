@@ -1,4 +1,4 @@
-package me.kuroxi.Music;
+package com.github.KuroXI.Music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;

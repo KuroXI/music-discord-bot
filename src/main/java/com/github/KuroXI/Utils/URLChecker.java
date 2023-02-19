@@ -1,4 +1,4 @@
-package me.kuroxi.Utils;
+package com.github.KuroXI.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;

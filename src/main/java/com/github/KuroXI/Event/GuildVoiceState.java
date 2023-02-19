@@ -1,8 +1,8 @@
-package me.kuroxi.Event;
+package com.github.KuroXI.Event;
 
+import com.github.KuroXI.Music.PlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
-import me.kuroxi.Music.PlayerManager;
-import me.kuroxi.Utils.Timeout;
+import com.github.KuroXI.Utils.Timeout;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

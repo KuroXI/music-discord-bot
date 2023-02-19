@@ -1,5 +1,6 @@
-package me.kuroxi.Event;
+package com.github.KuroXI.Event;
 
+import com.github.KuroXI.Command.*;
 import me.kuroxi.Command.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
